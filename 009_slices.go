@@ -15,15 +15,15 @@ func main() {
 
 	fmt.Println("len:", len(s))
 
-	s = append(s, "d")
+	s = append(s, "d") // slices are mutable
 	s = append(s, "e", "f")
 	fmt.Println("apd:", s)
 
 	c := make([]string, len(s))
-	copy(c, s)
+	copy(c, s) // slices can be copied
 	fmt.Println("cpy:", c)
 
-	l := s[2:5]
+	l := s[2:5] // slices support a 'slice' operator slice[low:high]
 	fmt.Println("sl1", l)
 
 	l = s[:5]
@@ -32,10 +32,10 @@ func main() {
 	l = s[2:]
 	fmt.Println("sl3:", l)
 
-	t := []string{"g", "h", "i"}
+	t := []string{"g", "h", "i"} // declaring and initializing slice in a single line
 	fmt.Println("dcl:", t)
 
-	twoD := make([][]int, 3)
+	twoD := make([][]int, 3) // slices can be composed into two-dimensional data structures
 	for i := 0; i < 3; i++ {
 		innerLen := i + 1
 		twoD[i] = make([]int, innerLen)
